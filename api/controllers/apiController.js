@@ -1,21 +1,6 @@
 'use strict';
 
-const jwt = require('express-jwt');
-const jwksRsa = require('jwks-rsa');
 
-const checkJwt = jwt({
-    secret: jwksRsa.expressJwtSecret({
-      cache: true,
-      rateLimit: true,
-      jwksRequestsPerMinute: 5,
-      jwksUri: `https://<AUTH0_DOMAIN>/.well-known/jwks.json`
-    }),
-  
-    // Validate the audience and the issuer.
-    audience: 'https://test-api',
-    issuer: `https://https://ruthmunoz.auth0.com/`,
-    algorithms: ['RS256']
-  });
 
 var mongoose = require('mongoose'),
   Task = mongoose.model('Tasks');
